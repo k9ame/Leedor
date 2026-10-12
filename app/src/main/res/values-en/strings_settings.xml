@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings / theme strings (English) -->
+<resources>
+
+    <!-- Screen title -->
+    <string name="settings_title">Settings</string>
+
+    <!-- AI Model -->
+    <string name="settings_section_ai_model">AI Model</string>
+    <string name="settings_selection_pending_download">Selection pending download</string>
+    <string name="settings_download_required">Download Required</string>
+    <string name="settings_active_voice">Active Voice: %1$s</string>
+    <string name="settings_manage_models">Manage Models &amp; Downloads</string>
+
+    <!-- Performance -->
+    <string name="settings_section_performance">Performance</string>
+    <string name="settings_cpu_threads">CPU Threads: %1$d</string>
+    <string name="settings_cpu_threads_hint">More threads = faster. Excessive threads may cause throttling.</string>
+    <string name="settings_auto">Auto</string>
+    <string name="settings_stream_buffer">Stream Buffer: %1$s tokens</string>
+    <string name="settings_stream_buffer_hint">Lower = lower latency (faster start). Higher = more stable.</string>
+    <string name="settings_warning_low_buffer">Warning: Very low values may cause crashes on some devices!</string>
+    <string name="settings_warning_high_buffer_kitten">Warning: High values (&gt;300) may cause crashes with Kitten TTS!</string>
+    <string name="settings_reset">Reset</string>
+    <string name="settings_speech_speed">Speech Speed: %1$sx</string>
+    <string name="settings_speed_piper_note">Note: Speed may not work on all Piper models due to model limitations.</string>
+    <string name="settings_speed_hint">Adjust speaking rate.</string>
+    <string name="settings_pocket_tts_settings">Pocket-TTS Settings</string>
+    <string name="settings_temperature">Temperature: %1$s</string>
+    <string name="settings_temperature_hint">Lower = more deterministic. Higher = more diverse/expressive.</string>
+    <string name="settings_flow_steps">Flow Steps: %1$d</string>
+    <string name="settings_flow_steps_hint">Higher = better quality, slower. Recommended: 10</string>
+    <string name="settings_frames_after_eos">Frames After EOS: %1$d</string>
+    <string name="settings_frames_after_eos_hint">Extra frames to generate after end-of-speech detection.</string>
+    <string name="settings_decoding_mode">Decoding Mode</string>
+    <string name="settings_decoding_mode_hint">Batch: Higher quality, collect all frames first. Streaming: Lower latency, adaptive chunking.</string>
+    <string name="settings_decoding_batch_quality">Batch (Quality)</string>
+    <string name="settings_decoding_streaming_fast">Streaming (Fast)</string>
+    <string name="settings_decode_chunk_size">Decode Chunk Size: %1$d frames</string>
+    <string name="settings_decode_chunk_size_hint">Frames per decode batch. Higher = faster but more memory. Default: 15</string>
+    <string name="settings_speech_speed_title">Speech Speed</string>
+    <string name="settings_speed_kokoro_fixed">Fixed at 1.0x for Kokoro v1.0 (Standard Model).</string>
+
+    <!-- Battery -->
+    <string name="settings_section_battery">Battery</string>
+    <string name="settings_disable_battery_optimization">Disable Battery Optimization</string>
+    <string name="settings_disable_battery_optimization_subtitle">Recommended for seamless background playback on OnePlus/Oppo devices.</string>
+
+    <!-- General -->
+    <string name="settings_section_general">General</string>
+    <string name="settings_system_tts">System TTS Settings</string>
+    <string name="settings_system_tts_subtitle">Manage engines and default settings</string>
+
+    <!-- Appearance -->
+    <string name="settings_section_appearance">Appearance</string>
+
+    <!-- About -->
+    <string name="settings_section_about">About</string>
+    <string name="settings_about_app_title">Leedor Voice Engine</string>
+    <string name="settings_version">Version %1$s</string>
+    <string name="settings_generating_support_report">Generating Support Report...</string>
+    <string name="settings_generate_support_report">Generate Support Report</string>
+    <string name="settings_generate_support_report_subtitle">Creates a zip with diagnostics and recent app logs</string>
+    <string name="settings_support_report_ready">Support report ready: %1$s</string>
+    <string name="settings_support_report_failed">Failed to generate support report</string>
+    <string name="settings_share_support_report">Share Support Report</string>
+    <string name="settings_share_support_report_subtitle">Share the latest report zip</string>
+    <string name="settings_support_report_none">No support report yet. Generate one first.</string>
+    <string name="settings_support_report_share_failed">Unable to share support report</string>
+    <string name="settings_file_bug_github">File Bug on GitHub</string>
+    <string name="settings_file_bug_github_subtitle">Opens prefilled bug template with metadata</string>
+    <string name="settings_open_bug_form_failed">Unable to open GitHub bug form</string>
+
+    <!-- Theme picker -->
+    <string name="theme_picker_title">Theme Color</string>
+    <string name="theme_picker_blue">Blue</string>
+    <string name="theme_picker_green">Green</string>
+    <string name="theme_picker_purple">Purple</string>
+    <string name="theme_picker_pink">Pink</string>
+    <string name="theme_picker_aqua">Aqua</string>
+    <string name="theme_picker_gray">Gray</string>
+    <string name="theme_dark_mode_title">Dark Mode</string>
+    <string name="theme_dark_mode_auto">Auto</string>
+    <string name="theme_dark_mode_light">Light</string>
+    <string name="theme_dark_mode_dark">Dark</string>
+    <string name="theme_dark_mode_black">Black</string>
+
+    <!-- Download source -->
+    <string name="settings_section_download">Download source</string>
+    <string name="settings_download_host_subtitle">Server used for downloading models and voices. huggingface.co is unreachable on many networks; use Auto or Mirror.</string>
+    <string name="settings_download_host_auto">Auto (recommended)</string>
+    <string name="settings_download_host_official">Official huggingface.co</string>
+    <string name="settings_download_host_mirror">Mirror hf-mirror.com</string>
+    <string name="settings_download_host_testing">Testing connectivity…</string>
+
+    <!-- Model display names and descriptions (id -> resource, see ModelDisplay.kt) -->
+    <string name="model_piper_name">Piper</string>
+    <string name="model_piper_desc">Fast, natural offline voices. Amy is bundled; 148 more voices (incl. Chinese) are downloadable from the Voices tab.</string>
+
+
+    <string name="model_kokoro_v11zh_name">Kokoro v1.1 Chinese</string>
+    <string name="model_kokoro_v11zh_desc">Chinese-focused model with 103 built-in voices (55 female + 45 male). Chinese uses a precompiled lexicon, fully offline.</string>
+
+    <string name="model_zipvoice_name">ZipVoice cloning</string>
+    <string name="model_zipvoice_desc">Zero-shot voice cloning: record a short reference clip and read Chinese in your own voice. Requires an extra vocoder download.</string>
+
+    <string name="model_pocket_name">Pocket-TTS (hidden)</string>
+    <string name="model_pocket_desc">No Chinese support.</string>
+
+    <string name="model_kitten_name">Kitten TTS Nano (hidden)</string>
+    <string name="model_kitten_desc">No Chinese support.</string>
+
+    <string name="model_unknown_name">Unknown model</string>
+    <string name="model_unknown_desc">This model is not defined in the index file.</string>
+
+    <!-- Hint for multi-voice models (Piper / Kokoro voices are picked in the Voices tab) -->
+    <string name="settings_multi_voice_hint">Pick a voice in the Voices tab</string>
+    <string name="settings_no_voice_yet">No voice selected yet</string>
+</resources>

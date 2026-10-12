@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "comment": [
+    "侍读郎模型索引 —— 声明式定义「有哪些模型」以及「每个模型要下载哪些文件」。",
+    "",
+    "设计原则：",
+    "  1. 本文件只描述**数据**（id / 引擎 / 文件列表 / 语言），不放面向用户的文案。",
+    "     显示名与描述由 UI 按 id 映射到字符串资源，见 ModelDisplay.kt，",
+    "     这样中英双语才不会被写死。",
+    "  2. 每个文件可以有多个 urls（多镜像），配合 DownloadHosts 自动回退。",
+    "     非 huggingface 域名（如 GitHub）不做镜像替换。",
+    "  3. path 是相对 filesDir 的路径；下载完 isInstalled() 就是检查这些文件是否都在。",
+    "  4. 新增模型只需要在这里加一条，不用改 Kotlin 代码。",
+    "",
+    "engine 取值：piper | kokoro | kokoro_multilang | zipvoice"
+  ],
+  "models": [
+    {
+      "id": "piper_en_US-amy-low",
+      "idPrefix": "piper_",
+      "engine": "piper",
+      "version": "1.0",
+      "languages": ["zh", "en"],
+      "bundled": true,
+      "multiVoice": true,
+      "comment": [
+        "Piper 是一个**语音家族**：运行时模型 id 形如 `piper_<语音名>`",
+        "（例如 piper_en_US-amy-low / piper_zh_CN-huayan-x_low）。",
+        "所以用 idPrefix 做前缀匹配，而不是精确匹配 id —— 否则用户在语音库里",
+        "换一个 Piper 语音后，设置页就认不出当前选的是 Piper 了。",
+        "",
+        "Amy Low 随 APK 打包（bundled），保证引擎永远有一个可用语音兜底；",
+        "其余 148 个语音（含中文）由语音库按需下载。"
+      ],
+      "files": []
+    },
+    {
+      "id": "kokoro_v1.1-zh",
+      "engine": "kokoro_multilang",
+      "version": "1.1",
+      "languages": ["zh", "en"],
+      "multiVoice": true,
+      "voices": ["af_maple", "af_sol", "bf_vale", "zf_001", "zf_002", "zf_003", "zf_004", "zf_005", "zf_006", "zf_007", "zf_008", "zf_017", "zf_018", "zf_019", "zf_021", "zf_022", "zf_023", "zf_024", "zf_026", "zf_027", "zf_028", "zf_032", "zf_036", "zf_038", "zf_039", "zf_040", "zf_042", "zf_043", "zf_044", "zf_046", "zf_047", "zf_048", "zf_049", "zf_051", "zf_059", "zf_060", "zf_067", "zf_070", "zf_071", "zf_072", "zf_073", "zf_074", "zf_075", "zf_076", "zf_077", "zf_078", "zf_079", "zf_083", "zf_084", "zf_085", "zf_086", "zf_087", "zf_088", "zf_090", "zf_092", "zf_093", "zf_094", "zf_099", "zm_009", "zm_010", "zm_011", "zm_012", "zm_013", "zm_014", "zm_015", "zm_016", "zm_020", "zm_025", "zm_029", "zm_030", "zm_031", "zm_033", "zm_034", "zm_035", "zm_037", "zm_041", "zm_045", "zm_050", "zm_052", "zm_053", "zm_054", "zm_055", "zm_056", "zm_057", "zm_058", "zm_061", "zm_062", "zm_063", "zm_064", "zm_065", "zm_066", "zm_068", "zm_069", "zm_080", "zm_081", "zm_082", "zm_089", "zm_091", "zm_095", "zm_096", "zm_097", "zm_098", "zm_100"],
+      "voiceUrlTemplate": "https://www.modelscope.cn/models/bikeand/Kokoro-82M-v1.1-zh-ONNX/resolve/master/voices/{voice}.bin",
+      "comment": [
+        "Kokoro v1.1-zh —— 中文专用变体，103 个语音（55 女声 + 45 男声 + 3 英文）。",
+        "中文 G2P 走预编译词典（lexicon-zh.txt），运行时只做最长匹配，不需要 jieba/pypinyin。",
+        "英文音素化复用 APK 内置的 espeak-ng-data（版本 0x014801，与包内一致）。",
+        "语音名由上面的 voices 字段登记（这份导出没有 speaker_names 元数据）。",
+        "",
+        "为什么用 fp32 —— 换文件前务必读这段（两个坑都踩过了）：",
+        "",
+        "1) model_int8 / model_uint8 / model_quantized 不能用：",
+        "   这三个文件把卷积量化成了 ConvInteger，而 ONNX Runtime 1.22 没有这个算子，",
+        "   建会话直接失败：Could not find an implementation for ConvInteger(10)。",
+        "   （新版 ORT 已补上这个算子，但 Android 预编译包是否包含未经验证。）",
+        "",
+        "2) model_fp16 看似能用，**实际会让声音变成「电音」**：",
+        "   它能建会话、能出声、频谱也正常，但 F0（音高）预测器里的 LSTM 与",
+        "   InstanceNormalization 在 fp16 下精度不足，实测音高会在八度间乱跳：",
+        "     帧间音高跳变 >50%（八度跳）占 13.5%，音高标准差/中位 = 0.320",
+        "   同一段话用 fp32 只有 0.0% / 0.134 —— 听感就是那种发飘的电子音。",
+        "   所以这里选 339 MB 的 model.onnx（fp32）。",
+        "   它的图接口是 input_ids:int64 / style:float32 / speed:float32 / waveform:float32，",
+        "   引擎侧喂 FloatBuffer 即可，不需要改代码。",
+        "",
+        "全部文件来自同一个 ModelScope 仓库 bikeand/Kokoro-82M-v1.1-zh-ONNX，",
+        "国内直连、不依赖任何 huggingface 镜像：",
+        "  * onnx/model.onnx     —— 输入为 input_ids/style/speed，与 sherpa 版接口一致",
+        "  * tokenizer.json      —— token→id 与 sherpa 的 tokens.txt 逐条相同（含 38 个注音）",
+        "  * lexicon-zh.txt / lexicon-us-en.txt —— 与 sherpa 原版字节数一致（2119465 / 5956885）",
+        "  * voices/<名字>.bin   —— 按需下载，选哪个下哪个（0.5 MB），不必下整包",
+        "",
+        "TokenTable 会自动识别 tokenizer.json（JSON）与 tokens.txt（纯文本）两种格式。"
+      ],
+      "files": [
+        {
+          "path": "kokoro-v1.1-zh/model.onnx",
+          "sizeBytes": 339369442,
+          "urls": [
+            "https://www.modelscope.cn/models/bikeand/Kokoro-82M-v1.1-zh-ONNX/resolve/master/onnx/model.onnx"
+          ]
+        },
+        {
+          "path": "kokoro-v1.1-zh/tokens.txt",
+          "sizeBytes": 4944,
+          "urls": [
+            "https://www.modelscope.cn/models/bikeand/Kokoro-82M-v1.1-zh-ONNX/resolve/master/tokenizer.json"
+          ]
+        },
+        {
+          "path": "kokoro-v1.1-zh/lexicon-zh.txt",
+          "sizeBytes": 2119465,
+          "urls": [
+            "https://www.modelscope.cn/models/bikeand/Kokoro-82M-v1.1-zh-ONNX/resolve/master/lexicon-zh.txt"
+          ]
+        },
+        {
+          "path": "kokoro-v1.1-zh/lexicon-us-en.txt",
+          "sizeBytes": 5956885,
+          "urls": [
+            "https://www.modelscope.cn/models/bikeand/Kokoro-82M-v1.1-zh-ONNX/resolve/master/lexicon-us-en.txt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zipvoice_zh_en",
+      "engine": "zipvoice",
+      "version": "1.0",
+      "languages": ["zh", "en"],
+      "multiVoice": true,
+      "voices": ["leijun-1", "news-female", "news-female-2"],
+      "voiceUrlTemplate": "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/test_wavs/{voice}.wav",
+      "voicePrompts": {
+        "leijun-1": "那还是三十六年前, 一九八七年. 我呢考上了武汉大学的计算机系.",
+        "news-female": "各位村民, 大家新年好! 近期, 湖北省武汉市等多个地区",
+        "news-female-2": "本台消息, 中共中央国务院, 近日印发关于构建数据基础制度, 更好发挥数据要素作用的意见."
+      },
+      "comment": [
+        "ZipVoice 零样本语音克隆（中英），Apache-2.0。",
+        "合成前必须有一段参考音频（零样本克隆）—— 参考音频就是它的「音色」。",
+        "",
+        "自带 3 个参考音色，来自同一个仓库的 test_wavs/（24kHz/16bit/单声道，",
+        "与引擎的 SAMPLE_RATE 一致，不用重采样）：",
+        "  * test_wavs/leijun-1.wav      + 参考文本",
+        "  * test_wavs/news-female.wav   + 参考文本",
+        "  * test_wavs/news-female-2.wav + 参考文本",
+        "参考文本登记在 voicePrompts（来源是上游的 test_wavs/prompt.txt，",
+        "逐行 `文件名 文本`）。**数字必须写成中文数字**：阿拉伯数字会被 espeak 按英文",
+        "读成三十多个音素（如 `1987` → one thousand nine hundred eighty-seven），",
+        "而音频里说的是「一九八七」，参考文本与音频一对不上，模型就会把合成部分压缩",
+        "到极短（实测 34 帧 = 0.36 秒读了 8 个音节），听感就是糊成一团的电音。",
+        "引擎会把参考音频放在 zipvoice/cloned/<名字>.wav、",
+        "把文本写成同名 .txt —— 对引擎来说，自带音色和用户克隆的音色是同一种东西。",
+        "这三个音频标了 optional：已经装过 ZipVoice 的老用户不会因此变成「未安装」，",
+        "在语音库里点下载就能单独补上（每个约 0.3 MB）。",
+        "",
+        "注意还需要额外下载 vocoder（vocos_24khz.onnx，51.6MB），",
+        "不在 ModelScope 这个仓里，来自 sherpa-onnx 的 vocoder-models release。"
+      ],
+      "files": [
+        {
+          "path": "zipvoice/encoder.int8.onnx",
+          "sizeBytes": 5570211,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/encoder.int8.onnx"
+          ]
+        },
+        {
+          "path": "zipvoice/decoder.int8.onnx",
+          "sizeBytes": 124657100,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/decoder.int8.onnx"
+          ]
+        },
+        {
+          "path": "zipvoice/vocos_24khz.onnx",
+          "sizeBytes": 54157409,
+          "urls": [
+            "https://github.com/k2-fsa/sherpa-onnx/releases/download/vocoder-models/vocos_24khz.onnx"
+          ]
+        },
+        {
+          "path": "zipvoice/tokens.txt",
+          "sizeBytes": 0,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/tokens.txt"
+          ]
+        },
+        {
+          "path": "zipvoice/lexicon.txt",
+          "sizeBytes": 1727147,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/lexicon.txt"
+          ]
+        },
+        {
+          "path": "zipvoice/cloned/leijun-1.wav",
+          "sizeBytes": 291028,
+          "optional": true,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/test_wavs/leijun-1.wav"
+          ]
+        },
+        {
+          "path": "zipvoice/cloned/news-female.wav",
+          "sizeBytes": 328342,
+          "optional": true,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/test_wavs/news-female.wav"
+          ]
+        },
+        {
+          "path": "zipvoice/cloned/news-female-2.wav",
+          "sizeBytes": 424352,
+          "optional": true,
+          "urls": [
+            "https://www.modelscope.cn/models/roarson/sherpa-onnx-zipvoice-distill-int8-zh-en-emilia/resolve/master/test_wavs/news-female-2.wav"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pocket_v1",
+      "engine": "pocket",
+      "version": "1.0",
+      "languages": ["en"],
+      "hidden": true,
+      "comment": "不支持中文 —— 界面隐藏（代码保留）。语音克隆能力已由 ZipVoice 取代。",
+      "files": [
+        {
+          "path": "pocket/models/mimi_encoder.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/onnx/mimi_encoder.onnx"
+          ]
+        },
+        {
+          "path": "pocket/models/text_conditioner.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/onnx/text_conditioner.onnx"
+          ]
+        },
+        {
+          "path": "pocket/models/flow_lm_main_int8.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/onnx/flow_lm_main_int8.onnx"
+          ]
+        },
+        {
+          "path": "pocket/models/flow_lm_flow_int8.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/onnx/flow_lm_flow_int8.onnx"
+          ]
+        },
+        {
+          "path": "pocket/models/mimi_decoder_int8.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/onnx/mimi_decoder_int8.onnx"
+          ]
+        },
+        {
+          "path": "pocket/tokenizer.model",
+          "sizeBytes": 0,
+          "urls": [
+            "https://huggingface.co/spaces/KevinAHM/pocket-tts-web/resolve/main/tokenizer.model"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kitten_nano",
+      "engine": "kitten",
+      "version": "1.0",
+      "languages": ["en"],
+      "hidden": true,
+      "comment": "不支持中文 —— 界面隐藏（代码保留）。",
+      "files": [
+        {
+          "path": "kitten_tts_nano_v0_1.onnx",
+          "sizeBytes": 0,
+          "urls": [
+            "https://github.com/siva-sub/NekoSpeak/releases/download/v1.0.0/kitten_tts_nano_v0_1.onnx"
+          ]
+        },
+        {
+          "path": "voices.npz",
+          "sizeBytes": 0,
+          "urls": [
+            "https://github.com/siva-sub/NekoSpeak/releases/download/v1.0.0/voices.npz"
+          ]
+        }
+      ]
+    }
+  ]
+}

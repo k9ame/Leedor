@@ -57,3 +57,6 @@ NekoSpeak Android System Sequence diagram .png
 scripts/
 .fusion/
 .worktrees/
+
+# 中文语音模型下载目录（体积大，不入库）
+/zh-models/

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VoicesScreen: top bar -->
+    <string name="voices_title">语音库</string>
+    <string name="voices_available_count">共 %1$d 个语音</string>
+
+    <!-- VoicesScreen: voice cloning entry points -->
+    <string name="voices_clone_voice">克隆语音</string>
+    <string name="voices_clone_a_voice">克隆语音</string>
+
+    <!-- VoicesScreen: test speech bar -->
+    <string name="voices_type_to_speak">输入要朗读的文字…</string>
+    <string name="voices_speak">朗读</string>
+
+    <!-- VoicesScreen: search and filters -->
+    <string name="voices_search_hint">搜索语音…</string>
+    <string name="voices_filter_region">地区</string>
+    <string name="voices_filter_language">语言</string>
+    <string name="voices_filter_gender">性别</string>
+    <string name="voices_filter_quality">质量</string>
+    <string name="voices_clear_filters">清空筛选</string>
+
+    <!-- VoicesScreen: empty state -->
+    <string name="voices_empty_title">未找到语音</string>
+    <string name="voices_empty_hint">试试调整筛选条件</string>
+
+    <!-- VoicesScreen: filter sheets -->
+    <string name="voices_select_language">选择语言</string>
+    <string name="voices_all_languages">全部语言</string>
+    <string name="voices_select_region">选择地区</string>
+    <string name="voices_clear_region">清空地区</string>
+    <string name="voices_select_gender">选择性别</string>
+    <string name="voices_gender_male">男</string>
+    <string name="voices_gender_female">女</string>
+    <string name="voices_clear_gender">清空性别</string>
+    <string name="voices_select_quality">选择质量</string>
+    <string name="voices_quality_extra_low">极低</string>
+    <string name="voices_quality_low">低</string>
+    <string name="voices_quality_medium">中</string>
+    <string name="voices_quality_high">高</string>
+    <string name="voices_clear_quality">清空质量</string>
+
+    <!-- VoicesScreen: clone options sheet -->
+    <string name="voices_record_voice">录制语音</string>
+    <string name="voices_record_hint">录制 5-10 秒的语音</string>
+    <string name="voices_upload_audio">上传音频文件</string>
+    <string name="voices_upload_hint">选择 WAV 或 MP3 文件</string>
+
+    <!-- VoicesScreen: voice name dialog -->
+    <string name="voices_name_title">给语音命名</string>
+    <string name="voices_name_hint">给克隆的语音起个名字，方便以后找到它。</string>
+    <string name="voices_name_label">语音名称</string>
+    <string name="voices_cancel">取消</string>
+
+    <!-- VoiceCard -->
+    <string name="voicecard_download">下载语音</string>
+    <string name="voicecard_delete">删除语音</string>
+    <string name="voicecard_downloading">下载中…</string>
+</resources>

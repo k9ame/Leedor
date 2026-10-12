@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  侍读郎 —— VoicesViewModel 里会显示到界面上的文案。
+  仅包含真正会渲染给用户的字符串（克隆进度、克隆失败提示、克隆语音名后缀）。
+  日志、文件路径、语音 ID 不在此列。
+-->
+<resources>
+    <!-- 克隆语音在语音库列表里的显示名后缀，例如「我的声音（克隆）」 -->
+    <string name="vm_cloned_name">%1$s（克隆）</string>
+
+    <!-- 克隆流程中的进度提示 -->
+    <string name="vm_clone_processing">正在处理语音：%1$s…</string>
+    <string name="vm_clone_encoding">正在编码语音：%1$s（可能需要一点时间）…</string>
+
+    <!-- 克隆失败提示 -->
+    <string name="vm_clone_err_audio_missing">语音克隆失败：找不到音频文件。</string>
+    <string name="vm_clone_err_retry">语音克隆失败，请用更清晰的录音重试。</string>
+    <string name="vm_clone_err_engine_init">语音克隆失败：克隆引擎初始化失败。</string>
+    <string name="vm_clone_err_generic">语音克隆失败，请重试。</string>
+    <!-- ZipVoice 自带参考音色（上游 test_wavs/ 里的三个） -->
+    <string name="voice_zipvoice_leijun">雷军</string>
+    <string name="voice_zipvoice_news_female">新闻女声</string>
+    <string name="voice_zipvoice_news_female_2">新闻女声 2</string>
+</resources>

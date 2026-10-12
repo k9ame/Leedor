@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VoiceRecorderScreen.kt -->
+    <string name="recorder_title">录制语音</string>
+    <string name="recorder_back">返回</string>
+    <string name="recorder_mic_required_title">需要麦克风权限</string>
+    <string name="recorder_mic_required_message">克隆语音需要访问你的麦克风，以录制一段声音样本。</string>
+    <string name="recorder_grant_mic_access">授予麦克风权限</string>
+    <string name="recorder_recording">录音中…</string>
+    <string name="recorder_start_recording">开始录音</string>
+    <string name="recorder_stop_recording">停止录音</string>
+    <string name="recorder_try_again">重试</string>
+    <string name="recorder_too_short">录音太短，请至少录制 %1$d 秒。</string>
+    <string name="recorder_play_preview">播放试听</string>
+    <string name="recorder_rerecord">重新录制</string>
+    <string name="recorder_continue">继续</string>
+    <string name="recorder_tips_title">💡 获得最佳效果的提示：</string>
+    <string name="recorder_tip_speak_clearly">• 吐字清晰、语气自然</string>
+    <string name="recorder_tip_quiet_env">• 选择安静的环境</string>
+    <string name="recorder_tip_distance">• 手机保持在 15-30 厘米外</string>
+    <string name="recorder_tip_duration">• 录制 15-30 秒效果最佳</string>
+    <string name="recorder_read_aloud">请朗读以下文本：</string>
+    <string name="recorder_transcript_hint">（用清晰的语音朗读即可，这段文字仅供参考）</string>
+    <string name="recorder_sample_transcript">欢迎使用语音克隆。请用你平时说话的速度，完整朗读下面这段文字。近年来，语音克隆技术取得了很大的进步。如今只需要一小段音频样本，就能生成与你音色一致的数字化声音。它的原理是分析你声音里独特的特征，包括音高、节奏、发音习惯和自然的停顿。为了获得最好的效果，请吐字清晰但语气自然，就像和朋友聊天一样。不要读得太快，让每句话都带上你自己的语气。</string>
+    <string name="recorder_name_your_voice">为语音命名</string>
+    <string name="recorder_name_dialog_message">给你的克隆语音起个名字，方便以后查找。</string>
+    <string name="recorder_voice_name_label">语音名称</string>
+    <string name="recorder_clone_voice">克隆语音</string>
+    <string name="recorder_cancel">取消</string>
+
+    <!-- AudioRecorder.kt -->
+    <string name="audio_error_config_not_supported">不支持当前的音频配置</string>
+    <string name="audio_error_init_failed">无法初始化录音器</string>
+    <string name="audio_error_permission_required">需要麦克风权限</string>
+    <string name="audio_error_start_failed">无法开始录音：%1$s</string>
+
+    <!-- ModelManagerScreen.kt -->
+    <string name="models_title">管理 AI 模型</string>
+    <string name="models_back">返回</string>
+    <string name="models_downloaded_piper_voices">已下载的 Piper 语音库</string>
+    <string name="models_no_downloaded_piper_voices">还没有下载任何 Piper 语音库，请到“语音库”标签页下载。</string>
+    <string name="models_bundled_hint">内置：en_US-amy-low（随应用附带）</string>
+    <string name="models_status_error">错误：%1$s</string>
+    <string name="models_status_downloading">下载中 %1$d%%…</string>
+    <string name="models_error_download_failed">下载失败，请检查网络连接。</string>
+    <string name="models_installed">已安装</string>
+    <string name="models_not_installed">未安装</string>
+    <string name="models_delete">删除</string>
+    <string name="models_download">下载</string>
+</resources>

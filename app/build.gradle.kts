@@ -5,11 +5,12 @@ plugins {
 }
 
 android {
-    namespace = "com.nekospeak.tts"
+    namespace = "com.leedor.tts"
     compileSdk = 35
+    ndkVersion = "25.2.9519653"
 
     defaultConfig {
-        applicationId = "com.nekospeak.tts"
+        applicationId = "com.leedor.tts"
         minSdk = 26
         targetSdk = 35
         versionCode = 16
@@ -86,11 +87,20 @@ android {
         checkReleaseBuilds = false
         abortOnError = false
     }
+
+    // 纯 JVM 单元测试里 android.util.Log 等桩方法会抛 "not mocked"，
+    // 让它们返回默认值，这样 frontend 包可以脱离设备测试。
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
     // ONNX Runtime Android
-    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.18.0")
+    // 1.22.0 是同时把 libonnxruntime.so 与 libonnxruntime4j_jni.so 都做成
+    // 16 KB 页对齐的最早版本（1.20.0 只对齐了前者）。低于此版本会在
+    // Android 15+ 的 16 KB 页设备上无法加载，Play 也会拒收。
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.22.0")
     
     // AndroidX Core
     implementation("androidx.core:core-ktx:1.12.0")

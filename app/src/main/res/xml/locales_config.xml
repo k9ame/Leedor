@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  侍读郎 (Leedor) 支持的应用语言。
+
+  这里声明的语言会出现在 Android 13+ 的
+  「设置 → 应用 → 侍读郎 → 语言」里，允许用户单独为本应用选择语言，
+  而不影响系统全局语言。
+-->
+<locale-config xmlns:android="http://schemas.android.com/apk/res/android">
+    <locale android:name="zh-CN" />
+    <locale android:name="en" />
+</locale-config>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VoicesScreen: top bar -->
+    <string name="voices_title">Voices</string>
+    <string name="voices_available_count">%1$d voices available</string>
+
+    <!-- VoicesScreen: voice cloning entry points -->
+    <string name="voices_clone_voice">Clone Voice</string>
+    <string name="voices_clone_a_voice">Clone a Voice</string>
+
+    <!-- VoicesScreen: test speech bar -->
+    <string name="voices_type_to_speak">Type to speak...</string>
+    <string name="voices_speak">Speak</string>
+
+    <!-- VoicesScreen: search and filters -->
+    <string name="voices_search_hint">Search voices...</string>
+    <string name="voices_filter_region">Region</string>
+    <string name="voices_filter_language">Language</string>
+    <string name="voices_filter_gender">Gender</string>
+    <string name="voices_filter_quality">Quality</string>
+    <string name="voices_clear_filters">Clear Filters</string>
+
+    <!-- VoicesScreen: empty state -->
+    <string name="voices_empty_title">No voices found</string>
+    <string name="voices_empty_hint">Try adjusting your filters</string>
+
+    <!-- VoicesScreen: filter sheets -->
+    <string name="voices_select_language">Select Language</string>
+    <string name="voices_all_languages">All Languages</string>
+    <string name="voices_select_region">Select Region</string>
+    <string name="voices_clear_region">Clear Region</string>
+    <string name="voices_select_gender">Select Gender</string>
+    <string name="voices_gender_male">Male</string>
+    <string name="voices_gender_female">Female</string>
+    <string name="voices_clear_gender">Clear Gender</string>
+    <string name="voices_select_quality">Select Quality</string>
+    <string name="voices_quality_extra_low">X_low</string>
+    <string name="voices_quality_low">Low</string>
+    <string name="voices_quality_medium">Medium</string>
+    <string name="voices_quality_high">High</string>
+    <string name="voices_clear_quality">Clear Quality</string>
+
+    <!-- VoicesScreen: clone options sheet -->
+    <string name="voices_record_voice">Record Voice</string>
+    <string name="voices_record_hint">Record 5-10 seconds of speech</string>
+    <string name="voices_upload_audio">Upload Audio File</string>
+    <string name="voices_upload_hint">Select a WAV or MP3 file</string>
+
+    <!-- VoicesScreen: voice name dialog -->
+    <string name="voices_name_title">Name Your Voice</string>
+    <string name="voices_name_hint">Give your cloned voice a name so you can find it later.</string>
+    <string name="voices_name_label">Voice Name</string>
+    <string name="voices_cancel">Cancel</string>
+
+    <!-- VoiceCard -->
+    <string name="voicecard_download">Download Voice</string>
+    <string name="voicecard_delete">Delete Voice</string>
+    <string name="voicecard_downloading">Downloading...</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  侍读郎 —— 中文能力标注相关文案。
+  数据来源见 engine/ModelLanguageSupport.kt。
+-->
+<resources>
+    <!-- 语音列表里的中文徽标 -->
+    <string name="lang_badge_chinese">中文</string>
+    <string name="lang_badge_chinese_unavailable">中文·暂不可用</string>
+
+    <!-- 模型选择里的能力标注 -->
+    <string name="lang_model_supported">✅ 支持中文朗读</string>
+    <string name="lang_model_model_only">⚠️ 模型有中文语音，但本版本缺中文音素模块，暂不可用</string>
+    <string name="lang_model_unsupported">❌ 不支持中文</string>
+
+    <!-- 中文语音提示 -->
+</resources>

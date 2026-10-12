@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Leedor — Chinese-capability annotations.
+  Source of truth: engine/ModelLanguageSupport.kt
+-->
+<resources>
+    <!-- Chinese badge in the voice list -->
+    <string name="lang_badge_chinese">Chinese</string>
+    <string name="lang_badge_chinese_unavailable">Chinese (unavailable)</string>
+
+    <!-- Capability annotation in model selection -->
+    <string name="lang_model_supported">✅ Chinese supported</string>
+    <string name="lang_model_model_only">⚠️ Model has Chinese voices, but this build lacks the Chinese G2P module</string>
+    <string name="lang_model_unsupported">❌ Chinese not supported</string>
+
+    <!-- Chinese voice hints -->
+</resources>

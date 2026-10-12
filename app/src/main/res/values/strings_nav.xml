@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 导航标题 -->
+    <string name="nav_onboarding">初始引导</string>
+    <string name="nav_voices">语音库</string>
+    <string name="nav_models">模型</string>
+    <string name="nav_settings">设置</string>
+    <string name="nav_voice_cloning">克隆语音</string>
+    <string name="nav_voice_recorder">录制语音</string>
+    <string name="nav_model_manager">管理模型</string>
+
+    <!-- 初始引导 -->
+    <string name="onboarding_header_title">欢迎使用 侍读郎</string>
+    <string name="onboarding_subtitle">端侧 AI 语音合成，数据不出本机。</string>
+    <string name="onboarding_step_model">1. 选择 AI 模型</string>
+    <string name="onboarding_step_voice">2. 选择初始语音</string>
+    <string name="onboarding_step_customize">3. 个性化你的体验</string>
+
+    <!-- 模型卡片 -->
+    <string name="onboarding_warning_download_required">需要下载</string>
+    <string name="onboarding_warning_cpu_intensive">CPU 占用较高</string>
+    <string name="onboarding_warning_download_70mb">需要下载（约 70MB）</string>
+    <string name="onboarding_warning_experimental">实验性</string>
+    <string name="onboarding_note_pocket_voices">注意：Pocket-TTS 语音为实验性，许可证请见 HuggingFace。</string>
+
+    <!-- 系统 TTS 设置 -->
+    <string name="onboarding_tts_section_title">启用全局 TTS（可选）</string>
+    <string name="onboarding_tts_section_desc">要在其他应用中朗读，请在系统设置里把「侍读郎」设为默认语音引擎。</string>
+    <string name="onboarding_open_tts_settings">打开 TTS 设置</string>
+
+    <!-- 按钮 -->
+    <string name="onboarding_button_back">返回</string>
+    <string name="onboarding_button_next">下一步</string>
+    <string name="onboarding_button_download_continue">下载并继续</string>
+    <string name="onboarding_button_get_started">开始使用</string>
+
+    <!-- 语音选择步骤：非预设语音的模型 -->
+    <string name="onboarding_voice_after_download">该模型内置多个语音，下载完成后可在「语音库」里选择。</string>
+    <string name="onboarding_voice_clone_required">这是语音克隆模型，没有预设语音。装好后到「语音库」录一段参考音频即可。</string>
+</resources>

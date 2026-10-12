@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- VoiceRecorderScreen.kt -->
+    <string name="recorder_title">Record Voice</string>
+    <string name="recorder_back">Back</string>
+    <string name="recorder_mic_required_title">Microphone Access Required</string>
+    <string name="recorder_mic_required_message">To clone your voice, we need access to your microphone to record a sample.</string>
+    <string name="recorder_grant_mic_access">Grant Microphone Access</string>
+    <string name="recorder_recording">Recording...</string>
+    <string name="recorder_start_recording">Start Recording</string>
+    <string name="recorder_stop_recording">Stop Recording</string>
+    <string name="recorder_try_again">Try Again</string>
+    <string name="recorder_too_short">Recording too short. Please record at least %1$d seconds.</string>
+    <string name="recorder_play_preview">Play Preview</string>
+    <string name="recorder_rerecord">Re-record</string>
+    <string name="recorder_continue">Continue</string>
+    <string name="recorder_tips_title">💡 Tips for best results:</string>
+    <string name="recorder_tip_speak_clearly">• Speak clearly and naturally</string>
+    <string name="recorder_tip_quiet_env">• Find a quiet environment</string>
+    <string name="recorder_tip_distance">• Keep phone 6-12 inches away</string>
+    <string name="recorder_tip_duration">• Record 15-30 seconds for best quality</string>
+    <string name="recorder_read_aloud">Read this text aloud:</string>
+    <string name="recorder_transcript_hint">(Any clear speech works - this text is just a guide)</string>
+    <string name="recorder_sample_transcript">Welcome to voice cloning. Please read this entire passage at your natural speaking pace. The technology behind voice cloning has made remarkable advances in recent years. Today, with just a short audio sample, we can create a digital representation of your unique voice. This works by analyzing the characteristics that make your voice distinctive, from your pitch and rhythm to your pronunciation patterns and natural pauses. For the best results, speak clearly but naturally, as if you were having a conversation with a friend. Avoid rushing through the text. Let your personality shine through in how you express each sentence.</string>
+    <string name="recorder_name_your_voice">Name Your Voice</string>
+    <string name="recorder_name_dialog_message">Give your cloned voice a name so you can find it later.</string>
+    <string name="recorder_voice_name_label">Voice Name</string>
+    <string name="recorder_clone_voice">Clone Voice</string>
+    <string name="recorder_cancel">Cancel</string>
+
+    <!-- AudioRecorder.kt -->
+    <string name="audio_error_config_not_supported">Audio configuration not supported</string>
+    <string name="audio_error_init_failed">Failed to initialize audio recorder</string>
+    <string name="audio_error_permission_required">Microphone permission required</string>
+    <string name="audio_error_start_failed">Failed to start recording: %1$s</string>
+
+    <!-- ModelManagerScreen.kt -->
+    <string name="models_title">Manage AI Models</string>
+    <string name="models_back">Back</string>
+    <string name="models_downloaded_piper_voices">Downloaded Piper Voices</string>
+    <string name="models_no_downloaded_piper_voices">No downloaded Piper voices. Download voices from the Voices tab.</string>
+    <string name="models_bundled_hint">Bundled: en_US-amy-low (included with app)</string>
+    <string name="models_status_error">Error: %1$s</string>
+    <string name="models_status_downloading">Downloading %1$d%%...</string>
+    <string name="models_error_download_failed">Download failed. Check connection.</string>
+    <string name="models_installed">Installed</string>
+    <string name="models_not_installed">Not Installed</string>
+    <string name="models_delete">Delete</string>
+    <string name="models_download">Download</string>
+</resources>

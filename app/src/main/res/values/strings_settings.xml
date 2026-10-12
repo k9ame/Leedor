@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设置 / 主题相关文案（简体中文，默认兜底） -->
+<resources>
+
+    <!-- 页面标题 -->
+    <string name="settings_title">设置</string>
+
+    <!-- AI 模型 -->
+    <string name="settings_section_ai_model">AI 模型</string>
+    <string name="settings_selection_pending_download">已选择，等待下载</string>
+    <string name="settings_download_required">需要下载</string>
+    <string name="settings_active_voice">当前语音：%1$s</string>
+    <string name="settings_manage_models">管理模型与下载</string>
+
+    <!-- 性能 -->
+    <string name="settings_section_performance">性能</string>
+    <string name="settings_cpu_threads">CPU 线程：%1$d</string>
+    <string name="settings_cpu_threads_hint">线程越多速度越快，但线程过多可能导致降频。</string>
+    <string name="settings_auto">自动</string>
+    <string name="settings_stream_buffer">流式缓冲区：%1$s 个 token</string>
+    <string name="settings_stream_buffer_hint">值越低延迟越低（启动更快），值越高越稳定。</string>
+    <string name="settings_warning_low_buffer">警告：数值过低可能导致部分设备崩溃！</string>
+    <string name="settings_warning_high_buffer_kitten">警告：数值过高（&gt;300）可能导致 Kitten TTS 崩溃！</string>
+    <string name="settings_reset">重置</string>
+    <string name="settings_speech_speed">朗读速度：%1$sx</string>
+    <string name="settings_speed_piper_note">注意：受模型限制，速度调节可能对部分 Piper 模型无效。</string>
+    <string name="settings_speed_hint">调整朗读语速。</string>
+    <string name="settings_pocket_tts_settings">Pocket-TTS 设置</string>
+    <string name="settings_temperature">温度：%1$s</string>
+    <string name="settings_temperature_hint">值越低结果越确定，值越高越多样、越有表现力。</string>
+    <string name="settings_flow_steps">流式步数：%1$d</string>
+    <string name="settings_flow_steps_hint">值越高音质越好但速度越慢。推荐：10</string>
+    <string name="settings_frames_after_eos">EOS 后帧数：%1$d</string>
+    <string name="settings_frames_after_eos_hint">语音结束检测后额外生成的帧数。</string>
+    <string name="settings_decoding_mode">解码模式</string>
+    <string name="settings_decoding_mode_hint">批处理：音质更高，先收集全部帧。流式：延迟更低，自适应分块。</string>
+    <string name="settings_decoding_batch_quality">批处理（质量）</string>
+    <string name="settings_decoding_streaming_fast">流式（快速）</string>
+    <string name="settings_decode_chunk_size">解码分块大小：%1$d 帧</string>
+    <string name="settings_decode_chunk_size_hint">每个解码批次处理的帧数。值越高速度越快，但占用内存更多。默认：15</string>
+    <string name="settings_speech_speed_title">朗读速度</string>
+    <string name="settings_speed_kokoro_fixed">Kokoro v1.0（标准模型）固定为 1.0x。</string>
+
+    <!-- 电池 -->
+    <string name="settings_section_battery">电池</string>
+    <string name="settings_disable_battery_optimization">关闭电池优化</string>
+    <string name="settings_disable_battery_optimization_subtitle">建议 OnePlus/Oppo 设备开启，以保证后台播放不中断。</string>
+
+    <!-- 通用 -->
+    <string name="settings_section_general">通用</string>
+    <string name="settings_system_tts">系统 TTS 设置</string>
+    <string name="settings_system_tts_subtitle">管理引擎与默认设置</string>
+
+    <!-- 外观 -->
+    <string name="settings_section_appearance">外观</string>
+
+    <!-- 关于 -->
+    <string name="settings_section_about">关于</string>
+    <string name="settings_about_app_title">侍读郎 语音引擎</string>
+    <string name="settings_version">版本 %1$s</string>
+    <string name="settings_generating_support_report">正在生成支持报告…</string>
+    <string name="settings_generate_support_report">生成支持报告</string>
+    <string name="settings_generate_support_report_subtitle">打包诊断信息与最近的应用日志</string>
+    <string name="settings_support_report_ready">支持报告已就绪：%1$s</string>
+    <string name="settings_support_report_failed">生成支持报告失败</string>
+    <string name="settings_share_support_report">分享支持报告</string>
+    <string name="settings_share_support_report_subtitle">分享最新的报告压缩包</string>
+    <string name="settings_support_report_none">还没有支持报告，请先生成一份。</string>
+    <string name="settings_support_report_share_failed">无法分享支持报告</string>
+    <string name="settings_file_bug_github">在 GitHub 提交问题</string>
+    <string name="settings_file_bug_github_subtitle">打开已预填元数据的 bug 模板</string>
+    <string name="settings_open_bug_form_failed">无法打开 GitHub 问题表单</string>
+
+    <!-- 主题选择 -->
+    <string name="theme_picker_title">主题颜色</string>
+    <string name="theme_picker_blue">蓝色</string>
+    <string name="theme_picker_green">绿色</string>
+    <string name="theme_picker_purple">紫色</string>
+    <string name="theme_picker_pink">粉色</string>
+    <string name="theme_picker_aqua">青色</string>
+    <string name="theme_picker_gray">灰色</string>
+    <string name="theme_dark_mode_title">深色模式</string>
+    <string name="theme_dark_mode_auto">自动</string>
+    <string name="theme_dark_mode_light">浅色</string>
+    <string name="theme_dark_mode_dark">深色</string>
+    <string name="theme_dark_mode_black">纯黑</string>
+
+    <!-- 下载源 -->
+    <string name="settings_section_download">下载源</string>
+    <string name="settings_download_host_subtitle">下载模型与语音使用的服务器。huggingface.co 在国内多数网络下不可达，建议用「自动」或「镜像」。</string>
+    <string name="settings_download_host_auto">自动（推荐）</string>
+    <string name="settings_download_host_official">官方 huggingface.co</string>
+    <string name="settings_download_host_mirror">镜像 hf-mirror.com</string>
+    <string name="settings_download_host_testing">正在测试连通性…</string>
+
+    <!-- 模型显示名与描述（按 id 映射，见 ModelDisplay.kt） -->
+    <string name="model_piper_name">Piper</string>
+    <string name="model_piper_desc">快速、自然的离线语音。内置 Amy 语音，另可在语音库下载 148 个语音（含中文）。</string>
+
+
+    <string name="model_kokoro_v11zh_name">Kokoro v1.1 中文</string>
+    <string name="model_kokoro_v11zh_desc">中文专用模型，内置 103 个语音（55 女声 + 45 男声）。中文走预编译词典，无需联网。</string>
+
+    <string name="model_zipvoice_name">ZipVoice 语音克隆</string>
+    <string name="model_zipvoice_desc">零样本语音克隆：录一段参考音频即可用你的声音朗读中文。需额外下载声码器。</string>
+
+    <string name="model_pocket_name">Pocket-TTS（已隐藏）</string>
+    <string name="model_pocket_desc">不支持中文。</string>
+
+    <string name="model_kitten_name">Kitten TTS Nano（已隐藏）</string>
+    <string name="model_kitten_desc">不支持中文。</string>
+
+    <string name="model_unknown_name">未知模型</string>
+    <string name="model_unknown_desc">索引文件中没有这个模型的定义。</string>
+
+    <!-- 多语音模型的提示（Piper / Kokoro 的语音在语音库里选） -->
+    <string name="settings_multi_voice_hint">语音在「语音库」标签页里单独选择</string>
+    <string name="settings_no_voice_yet">尚未选择语音</string>
+</resources>

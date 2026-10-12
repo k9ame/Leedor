@@ -1,15 +1,17 @@
-# NekoSpeak
+# 侍读郎 (Leedor)
+
+> **Fork notice:** Leedor (侍读郎) is a fork of
+> [NekoSpeak](https://github.com/siva-sub/NekoSpeak) by Sivasubramanian Ramanathan.
+> The application id is `com.leedor.tts` and the launcher label is `侍读郎`.
+> Licensing is split between MIT (source) and GPL-3.0 (distributed APK) —
+> see the [License](#license) section before redistributing.
 
 ![Android](https://img.shields.io/badge/Android-35-green?style=flat&logo=android)
 ![Kotlin](https://img.shields.io/badge/Kotlin-2.0.0-purple?style=flat&logo=kotlin)
-[![GitHub Release](https://img.shields.io/github/v/release/siva-sub/NekoSpeak)](https://github.com/siva-sub/NekoSpeak/releases)
-[![License](https://img.shields.io/github/license/siva-sub/NekoSpeak)](https://github.com/siva-sub/NekoSpeak/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/siva-sub/NekoSpeak?style=social)](https://github.com/siva-sub/NekoSpeak/stargazers)
 ![ONNX Runtime](https://img.shields.io/badge/ONNX%20Runtime-1.18.0-blue)
 ![CPU](https://img.shields.io/badge/CPU-supported-brightgreen)
-[![Download APK](https://img.shields.io/badge/Download-APK%20(v1.4.2)-blue?style=for-the-badge&logo=android)](https://github.com/siva-sub/NekoSpeak/releases)
 
-**NekoSpeak** is a high-performance, on-device Text-to-Speech (TTS) engine for Android, capable of running **100% offline** with low latency. It bridges the gap between modern AI voice synthesis and the standard Android TTS API.
+**侍读郎 (Leedor)** is a high-performance, on-device Text-to-Speech (TTS) engine for Android, capable of running **100% offline** with low latency. It bridges the gap between modern AI voice synthesis and the standard Android TTS API.
 
 ## 🎯 Motivation
 
@@ -82,7 +84,7 @@ The first and foremost consideration was **fully offline functionality** - no in
 ├── app
 │   ├── src
 │   │   ├── main
-│   │   │   ├── java/com/nekospeak/tts  (Kotlin Source)
+│   │   │   ├── java/com/leedor/tts    (Kotlin Source)
 │   │   │   ├── cpp/                    (Native C++ / JNI)
 │   │   │   ├── assets/                 (Bundled Models)
 │   │   │   └── res/                    (UI Resources)
@@ -223,14 +225,27 @@ I gratefully acknowledge the incredible work of the open-source AI community:
 
 ## License
 
-**NekoSpeak** is licensed under the **MIT License**.
+This project is a fork of **NekoSpeak**. Licensing is split:
 
-> **Note**: While the NekoSpeak application code is MIT, it bundles dependencies with their own licenses:
-> *   **Espeak-NG**: GPL v3.0
-> *   **ONNX Models**: Apache 2.0 / CC-BY-4.0 (Check specific model licenses)
+*   **Application source code** (inherited from NekoSpeak, plus Leedor modifications)
+    — **MIT License**. See [`LICENSE`](LICENSE). The original `Copyright (c) 2026
+    NekoSpeak Team` notice is retained as the MIT terms require.
+*   **Distributed APK** — **GPL-3.0**. See [`COPYING`](COPYING).
+
+> ⚠️ **Why the APK is GPL-3.0, not MIT:** the app links **eSpeak-NG** (GPL-3.0)
+> into the same process via `app/src/main/cpp/CMakeLists.txt`, and also ships
+> 19 MB of eSpeak-NG data. That makes the shipped binary a combined work, so
+> GPL-3.0 §5(c) requires the whole work to be conveyed under GPL-3.0.
+>
+> **If you distribute an APK, you must publish the complete corresponding source
+> for that revision.** Private/internal use carries no such obligation.
+
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for the full component
+list (ONNX Runtime, Misaki, JTransforms, and the bundled/downloaded models),
+plus a pre-release compliance checklist.
 
 ## Author
 
-Developed by **Sivasubramanian Ramanathan**
+**NekoSpeak** (upstream) — developed by **Sivasubramanian Ramanathan**
 *   [LinkedIn](https://www.linkedin.com/in/sivasub987/)
 *   [Website](https://sivasub.com/)

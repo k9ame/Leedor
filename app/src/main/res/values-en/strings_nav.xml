@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navigation titles -->
+    <string name="nav_onboarding">Onboarding</string>
+    <string name="nav_voices">Voices</string>
+    <string name="nav_models">Models</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_voice_cloning">Clone Voice</string>
+    <string name="nav_voice_recorder">Record Voice</string>
+    <string name="nav_model_manager">Manage Models</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_header_title">Welcome to Leedor</string>
+    <string name="onboarding_subtitle">Private, on-device AI Text-to-Speech.</string>
+    <string name="onboarding_step_model">1. Choose AI Model</string>
+    <string name="onboarding_step_voice">2. Choose Starter Voice</string>
+    <string name="onboarding_step_customize">3. Customize Your Experience</string>
+
+    <!-- Model cards -->
+    <string name="onboarding_warning_download_required">Download Required</string>
+    <string name="onboarding_warning_cpu_intensive">CPU Intensive</string>
+    <string name="onboarding_warning_download_70mb">Download Required (~70MB)</string>
+    <string name="onboarding_warning_experimental">Experimental</string>
+    <string name="onboarding_note_pocket_voices">Note: Pocket-TTS voices are experimental. See HuggingFace for licenses.</string>
+
+    <!-- System TTS setup -->
+    <string name="onboarding_tts_section_title">Enable System-wide TTS (Optional)</string>
+    <string name="onboarding_tts_section_desc">To read aloud in other apps, set Leedor as the default voice engine in system settings.</string>
+    <string name="onboarding_open_tts_settings">Open TTS Settings</string>
+
+    <!-- Buttons -->
+    <string name="onboarding_button_back">Back</string>
+    <string name="onboarding_button_next">Next</string>
+    <string name="onboarding_button_download_continue">Download &amp; Continue</string>
+    <string name="onboarding_button_get_started">Get Started</string>
+
+    <!-- Voice step: models without preset voices -->
+    <string name="onboarding_voice_after_download">This model ships many built-in voices. Pick one in the Voices tab after downloading.</string>
+    <string name="onboarding_voice_clone_required">This is a voice-cloning model with no preset voices. After downloading, record a reference clip in the Voices tab.</string>
+</resources>

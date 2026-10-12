@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2026 NekoSpeak Team
+Copyright (c) 2026 Leedor (侍读郎) — modifications and additions
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+NOTE ON SCOPE — READ THIS BEFORE REDISTRIBUTING
+
+The MIT grant above covers the application source code inherited from
+NekoSpeak and the modifications made for Leedor (侍读郎).
+
+It does NOT cover the bundled eSpeak-NG components, which are licensed under
+GPL-3.0-or-later (see COPYING). Because eSpeak-NG is linked into the same
+process, any distributed APK is a combined work and must be conveyed under
+GPL-3.0 terms. See THIRD_PARTY_NOTICES.md for the full list of bundled
+third-party components and their licenses.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Leedor — user-visible strings originating from VoicesViewModel.
+  Only strings that actually reach the UI (clone progress, clone errors,
+  cloned-voice name suffix). Logs, file paths and voice IDs are excluded.
+-->
+<resources>
+    <!-- Suffix for a cloned voice in the voice list, e.g. "My Voice (Cloned)" -->
+    <string name="vm_cloned_name">%1$s (Cloned)</string>
+
+    <!-- Clone progress -->
+    <string name="vm_clone_processing">Processing voice: %1$s...</string>
+    <string name="vm_clone_encoding">Encoding voice: %1$s (this may take a moment)...</string>
+
+    <!-- Clone failures -->
+    <string name="vm_clone_err_audio_missing">Voice cloning failed. Audio file could not be found.</string>
+    <string name="vm_clone_err_retry">Voice cloning failed. Please try again with a clearer recording.</string>
+    <string name="vm_clone_err_engine_init">Voice cloning failed. The cloning engine could not be initialized.</string>
+    <string name="vm_clone_err_generic">Voice cloning failed. Please try again.</string>
+    <!-- ZipVoice built-in reference voices (from upstream test_wavs/) -->
+    <string name="voice_zipvoice_leijun">Lei Jun</string>
+    <string name="voice_zipvoice_news_female">News anchor (female)</string>
+    <string name="voice_zipvoice_news_female_2">News anchor 2 (female)</string>
+</resources>
